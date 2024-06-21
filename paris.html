@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    
+<head>
+    <title>Paris</title>
+  
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">&#9776; Bucket List</button>
+    </div>
+  
+    <script>
+      function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+      
+      function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0"; 
+      } 
+    </script>
+  
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="index.html">Home</a>
+      <a href="london.html">London</a>
+      <a href="singapore.html">Singapore</a>
+      <a href="paris.html">Paris</a>
+      <a href="sk.html">Seoul</a>
+    </div>
+  
+</head>
+
+<body>
+    <h1>Paris, France</h1>
+    <p> I want to visit Paris as it has many famous buildings such as the Eiffel Tower, The Louvre Museum and Arc de Triomphe.</p>
+    <p> Paris also has beautiful gardens all across the city. I also want to try French pastries and bread, I love food.</p>
+    <p> I would also like to go to Versailles as I want to see the Sun Palace. I learned about Versailles in Socials and have always wanted to go and actually see the city and admire its history</p>
+
+    <div class="slideshow-container">
+
+      <!-- Full-width images with number and caption text -->
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="eiffeltower.png" style="width:100%">
+        <div class="text">Eiffel Tower</div>
+      </div>
+    
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img src="bakery.jpg" style="width:100%">
+        <div class="text">Macrons</div>
+      </div>
+    
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img src="gardens.jpg" style="width:100%">
+        <div class="text">The Versailles Palace Gardens</div>
+      </div>
+    
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+    
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+</body>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+SK:wght@100..400&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabin:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+SK:wght@100..400&display=swap');
+  h1{
+    font-family: "Playfair Display", serif;
+    
+    text-align: center;
+    background-color: rgb(173, 115, 228);
+    color: black;
+  }
+  p{
+    font-family: "Cabin", sans-serif;
+    text-align: center;
+    font-size: larger;
+  }
+  * {box-sizing:border-box}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+  display: none;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+</style>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+
+</script>
+
+</html>
